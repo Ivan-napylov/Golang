@@ -1,0 +1,2 @@
+2025/11/02 19:53:55 main.go:46: Server running on http://localhost:8080
+2025/11/02 19:54:07 main.go:113: GET /books?genre=fiction&sort=price_desc&limit=1 -> 1 rows, took 70.5888ms

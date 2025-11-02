@@ -1,0 +1,18 @@
+FROM golang:1.22 AS builder
+
+WORKDIR /app
+COPY . .
+
+RUN go mod download
+RUN go build -o server main.go
+
+FROM debian:bookworm-slim
+
+WORKDIR /app
+COPY --from=builder /app/server .
+COPY --from=builder /app/server.log /app/server.log
+
+EXPOSE 8080
+
+# Стартуем сервер
+CMD ["./server"]
